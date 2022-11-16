@@ -40,3 +40,4 @@ Route::middleware([
 Route::get('/trovacoinquilino', [HousingController::class, 'show'])->name('HousingIndex');
 
 Route::get('/nuovoanncasa', [HousingController::class, 'create'])->name('newHousing');
+Route::post('/housingadeded', [HousingController::class, 'store'])->name('housingadded');

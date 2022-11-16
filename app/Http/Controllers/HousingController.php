@@ -39,9 +39,23 @@ class HousingController extends Controller
      */
     public function store(HousingStoreRequest $request)
     {
-        Housing::create($request->validated());
+        $request->validate([
+            'nome' => 'required|string|max:20',
+            'descrizione' => 'string|max:255',
+            'costo' => 'string|max:15',
+            'city' => 'string|max:20',
+            'numero_telefono' => 'string|max:255',
+        ]);
 
-        return redirect()->route('trovacoinquilino')->with('message', 'Annuncio inserito');
+        Housing::create([
+            'nome' => $request->nome,
+            'descrizione' => $request->descrizione,
+            'costo' => $request->costo,
+            'city' => $request->city,
+            'numero_telefono' => $request->numero_telefono,
+        ]);
+
+        return redirect()->route('HousingIndex')->with('message', 'Annuncio inserito');
     }
 
     /**

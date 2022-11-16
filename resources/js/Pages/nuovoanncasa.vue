@@ -51,7 +51,7 @@ const form = useForm({
     descrizione: '',
     costo: '',
     city: '',
-    numero_telefono: ''
+    numero_telefono: 'prova'
 })
 
 const submit = () =>{

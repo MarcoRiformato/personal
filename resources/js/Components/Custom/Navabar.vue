@@ -1,4 +1,5 @@
 <template>
+<Head title="Forum Giovani v0.1"/>
 <nav class="bg-white shadow dark:bg-gray-800">
     <div class="container px-6 py-4 mx-auto">
         <div class="lg:flex lg:items-center">

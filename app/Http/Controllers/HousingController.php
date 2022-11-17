@@ -44,7 +44,7 @@ class HousingController extends Controller
             'descrizione' => 'string|max:255',
             'costo' => 'string|max:15',
             'city' => 'string|max:20',
-            'numero_telefono' => 'string|max:255',
+            'numero_telefono' => 'integer|nullable|max:30',
         ]);
 
         Housing::create([

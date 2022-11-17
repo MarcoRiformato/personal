@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('descrizione');
             $table->string('costo')->nullable();
             $table->string('city');
-            $table->integer('numero_telefono')->nullable();
+            $table->bigInteger('numero_telefono')->nullable();
             $table->timestamps();
         });
     }

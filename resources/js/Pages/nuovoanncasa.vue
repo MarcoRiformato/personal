@@ -34,7 +34,7 @@
 </div>
 
 <div class="flex justify-end mt-6">
-    <button type="submit" :disabled="form.processing" class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
+    <button type="submit" :disabled="form.processing" class="px-8 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
 </div>
 </form>
 </section>
@@ -42,7 +42,7 @@
 </template>
 <script setup>
 import NavabarVue from '../Components/Custom/Navabar.vue';
-import FooterVue from '../Components/Custom/Footer.vue';
+import FooterVue from '../Components/Custom/CustomFooter.vue';
 import { useForm } from '@inertiajs/inertia-vue3';
 import { Inertia } from '@inertiajs/inertia';
 
@@ -51,7 +51,7 @@ const form = useForm({
     descrizione: '',
     costo: '',
     city: '',
-    numero_telefono: 'prova'
+    numero_telefono: ''
 })
 
 const submit = () =>{

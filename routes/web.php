@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\HousingController;
+use App\Http\Controllers\RidesharingController;
+use App\Models\Ridesharing;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -38,6 +40,7 @@ Route::middleware([
 });
 
 Route::get('/trovacoinquilino', [HousingController::class, 'show'])->name('HousingIndex');
-
 Route::get('/nuovoanncasa', [HousingController::class, 'create'])->name('newHousing');
 Route::post('/housingadeded', [HousingController::class, 'store'])->name('housingadded');
+
+Route::get('/elbapassaggi', [RidesharingController::class, 'show'])->name('Carsharing');

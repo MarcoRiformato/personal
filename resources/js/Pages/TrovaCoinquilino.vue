@@ -19,11 +19,11 @@
 </div>
 </div>
 </section>
-<Footer/>
+<CustomFooter/>
 </template>
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
-import Footer from '../Components/Custom/Footer.vue';
+import CustomFooter from '../Components/Custom/CustomFooter.vue';
 import Navabar from '../Components/Custom/Navabar.vue';
 import SingleCardAnnunci from '../Components/Custom/SingleCardAnnunci.vue';
 

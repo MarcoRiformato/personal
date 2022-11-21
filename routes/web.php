@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HousingController;
+use App\Http\Controllers\JobsController;
 use App\Http\Controllers\RidesharingController;
 use App\Models\Ridesharing;
 use Illuminate\Foundation\Application;
@@ -44,3 +45,5 @@ Route::get('/nuovoanncasa', [HousingController::class, 'create'])->name('newHous
 Route::post('/housingadeded', [HousingController::class, 'store'])->name('housingadded');
 
 Route::get('/elbapassaggi', [RidesharingController::class, 'show'])->name('Carsharing');
+
+Route::get('/elbalavoro', [JobsController::class, 'show'])->name('ElbaLavoro');

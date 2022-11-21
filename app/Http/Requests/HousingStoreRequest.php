@@ -28,7 +28,7 @@ class HousingStoreRequest extends FormRequest
             'descrizione' => 'required|string|max:50',
             'costo' => 'required|string|max:20',
             'city' => 'required|string|max:40',
-            'numero_telefono' => 'required|int|max:15'
+            'numero_telefono' => 'required|string|max:30'
         ];
     }
 }

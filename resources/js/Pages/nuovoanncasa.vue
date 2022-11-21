@@ -7,28 +7,33 @@
     <div>
         <label class="text-gray-700 dark:text-gray-200" for="nome">Nome</label>
         <input id="nome" v-model="form.nome" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+        <div v-if="form.errors.nome" class="text-red-600 text-sm">{{ form.errors.nome }}</div>
     </div>
 
     <div>
         <label class="text-gray-700 dark:text-gray-200" for="city">Città</label>
         <input v-model="form.city" id="city" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+        <div v-if="form.errors.city" class="text-red-600 text-sm">{{ form.errors.city }}</div>
     </div>
 
     
     <div>
         <label class="text-gray-700 dark:text-gray-200" for="costo">Costo</label>
         <input v-model="form.costo" id="costo" type="text"  class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+        <div v-if="form.errors.costo" class="text-red-600 text-sm">{{ form.errors.costo }}</div>
     </div>
     
     
     <div>
         <label class="text-gray-700 dark:text-gray-200" for="numero_telefono">Numero di telefono</label>
         <input v-model="form.numero_telefono" id="numero_telefono" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+        <div v-if="form.errors.numero_telefono" class="text-red-600 text-sm">{{ form.errors.numero_telefono }}</div>
     </div>
     
     <div col-2>
         <label class="text-gray-700 dark:text-gray-200" for="descrizione">Descrizione</label>
         <textarea v-model="form.descrizione" rows="6" cols="30" id="descrizione" type="textarea" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"></textarea>
+        <div v-if="form.errors.descrizione" class="text-red-600 text-sm">{{ form.errors.descrizione }}</div>
     </div>
 
 </div>

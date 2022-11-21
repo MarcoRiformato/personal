@@ -18,7 +18,7 @@
                 <p class="mt-2 text-lg tracking-wider text-gray-500 dark:text-gray-300 ">Scopri gli annunci di appartamenti condivisi per l'università</p>
             </Link>
 
-            <Link as="div" href="/elbapassaggi">
+            <Link as="div" href="/selezionatratta">
                 <img class="object-cover w-full rounded-lg h-96 "
                     src="https://images.unsplash.com/photo-1621609764180-2ca554a9d6f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
                     alt="">

@@ -5,7 +5,7 @@
         <div class="lg:flex lg:items-center">
             <div class="flex items-center justify-between">
                 <div>
-                    <a class="text-2xl font-bold text-gray-800 transition-colors duration-300 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" href="/">Forum Giovanile Elbano</a>
+                    <a class="text-2xl font-bold text-gray-800 transition-colors duration-300 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" href="/">Forum Giovani Elbano</a>
                 </div>
 
                 <!-- Mobile menu button -->

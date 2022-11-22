@@ -45,9 +45,9 @@ class RidesharingController extends Controller
      * @param  \App\Models\Ridesharing  $ridesharing
      * @return \Illuminate\Http\Response
      */
-    public function showSelect(Ridesharing $ridesharing)
+    public function show(Ridesharing $ridesharing)
     {
-        return Inertia::render('SelezionaTratta');
+        return Inertia::render('ElbaPassaggi');
     }
 
     /**

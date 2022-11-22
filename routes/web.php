@@ -44,6 +44,6 @@ Route::get('/trovacoinquilino', [HousingController::class, 'show'])->name('Housi
 Route::get('/nuovoanncasa', [HousingController::class, 'create'])->name('newHousing');
 Route::post('/housingadeded', [HousingController::class, 'store'])->name('housingadded');
 
-Route::get('/elbapassaggi', [RidesharingController::class, 'show'])->name('Carsharing');
+Route::get('/selezionatratta', [RidesharingController::class, 'showSelect'])->name('SelezionaTratta');
 
 Route::get('/elbalavoro', [JobsController::class, 'show'])->name('ElbaLavoro');

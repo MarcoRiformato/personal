@@ -67,7 +67,7 @@ class HousingController extends Controller
     public function show(Housing $housing)
     {
         return Inertia::render('TrovaCoinquilino', [
-            'Housings' => Housing::get()
+            'housings' => Housing::get()
         ]);
     }
 

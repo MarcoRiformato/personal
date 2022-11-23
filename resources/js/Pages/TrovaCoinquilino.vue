@@ -14,7 +14,7 @@
 
 <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
     
-    <SingleCardAnnunci  v-for="Housing in Housings" :Housing="Housing"/>
+    <SingleCardAnnunci  v-for="Housing in housings" :Housing="Housing"/>
 
 </div>
 </div>
@@ -28,7 +28,7 @@ import Navabar from '../Components/Custom/Navabar.vue';
 import SingleCardAnnunci from '../Components/Custom/SingleCardAnnunci.vue';
 
 defineProps({
-    Housings: Array[
+    housings: Array[
     'nome',
     'stato_annuncio',
     'descrizione',

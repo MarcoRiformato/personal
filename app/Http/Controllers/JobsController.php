@@ -47,7 +47,9 @@ class JobsController extends Controller
      */
     public function show(Jobs $jobs)
     {
-        return Inertia::render('ElbaLavoro');
+        return Inertia::render('trovalavoro', [
+            'jobs' => Jobs::get()
+        ]);
     }
 
     /**

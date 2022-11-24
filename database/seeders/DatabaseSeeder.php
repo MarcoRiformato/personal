@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Housing;
+use App\Models\Jobs;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,5 +24,6 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Housing::factory()->count(4)->create();
+        Jobs::factory()->count(4)->create();
     }
 }

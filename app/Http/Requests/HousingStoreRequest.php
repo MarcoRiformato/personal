@@ -24,10 +24,10 @@ class HousingStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => 'required|string|max:30',
-            'descrizione' => 'required|string|max:50',
-            'costo' => 'required|string|max:20',
-            'city' => 'required|string|max:40',
+            'nome' => 'required|string|max:50',
+            'descrizione' => 'required|string|max:250',
+            'costo' => 'required|string|max:50',
+            'city' => 'required|string|max:100',
             'numero_telefono' => 'required|string|max:30'
         ];
     }

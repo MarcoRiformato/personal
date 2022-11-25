@@ -1,6 +1,7 @@
 <template>
 <Head title="Trova Coinquilino"/>
-<Navabar/>
+<Lavori/>
+<!--
 <section class="bg-white dark:bg-gray-900">
 <div class="container px-6 py-10 mx-auto">
 <div class="flex items-center justify-between">
@@ -20,9 +21,12 @@
 </div>
 </section>
 <CustomFooter/>
+-->
 </template>
 <script setup>
 import { Head } from '@inertiajs/inertia-vue3';
+import CustomFooter from '../Components/Custom/CustomFooter.vue';
+import Lavori from '../Components/Custom/lavori.vue';
 import Navabar from '../Components/Custom/Navabar.vue';
 
 defineProps({

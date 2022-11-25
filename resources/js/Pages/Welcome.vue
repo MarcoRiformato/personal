@@ -18,7 +18,7 @@ defineProps({
 <template>
 <Head title="Forum Giovanile v0.1"/>
 <Navabar class="bg-white shadow dark:bg-gray-800" />
-<Show/>
+
 <Portfolio/>
 <Main_w_side/>
 <Our_team/>

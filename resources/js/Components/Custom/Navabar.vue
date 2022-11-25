@@ -23,7 +23,7 @@
                     <a href="/selezionatratta" class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">ElbaCar</a>
                     <a href="/trovacoinquilino" class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Stanze universitarie</a>
                     <a href="#" class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Offerte di lavoro</a>
-                    <a href="#" class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Blog</a>
+                    <a href="/notizie" class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Notizie</a>
                     <a href="#" class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Chi siamo</a>
                 </div>
                 
@@ -51,6 +51,7 @@
                             </path>
                         </svg>
                     </a>
+                    
                 </div>
             </div>
         </div>

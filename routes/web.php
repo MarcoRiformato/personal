@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HousingController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\RidesharingController;
@@ -47,3 +48,5 @@ Route::post('/housingadeded', [HousingController::class, 'store'])->name('housin
 Route::get('/selezionatratta', [RidesharingController::class, 'showSelect'])->name('SelezionaTratta');
 
 Route::get('/elbalavoro', [JobsController::class, 'show'])->name('ElbaLavoro');
+
+Route::get('/notizie', [ArticleController::class, 'show'])->name('notizie');

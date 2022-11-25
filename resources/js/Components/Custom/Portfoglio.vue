@@ -33,6 +33,14 @@
                 <h2 class="mt-4 text-2xl font-semibold text-gray-800 capitalize dark:text-white">Elba lavoro</h2>
                 <p class="mt-2 text-lg tracking-wider text-gray-500 dark:text-gray-300 ">Trova un lavoro stagionale per la prossima stagione estiva</p>
             </Link>
+
+            <Link as="div" href="/blog">
+                <img class="object-cover w-full rounded-lg h-96 "
+                    src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                    alt="">
+                <h2 class="mt-4 text-2xl font-semibold text-gray-800 capitalize dark:text-white">Blog</h2>
+                <p class="mt-2 text-lg tracking-wider text-gray-500 dark:text-gray-300 ">Leggi le ultime notizie del forum</p>
+            </Link>
         </div>
     </div>
 </section>

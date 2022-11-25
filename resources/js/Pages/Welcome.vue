@@ -5,6 +5,7 @@ import Navabar from '../Components/Custom/Navabar.vue';
 import Our_team from '../Components/Custom/OurTeam.vue';
 import Portfolio from '../Components/Custom/Portfoglio.vue';
 import CustomFooter from '../Components/Custom/CustomFooter.vue';
+import Show from './Profile/Show.vue';
 
 defineProps({
     canLogin: Boolean,
@@ -17,6 +18,7 @@ defineProps({
 <template>
 <Head title="Forum Giovanile v0.1"/>
 <Navabar class="bg-white shadow dark:bg-gray-800" />
+<Show/>
 <Portfolio/>
 <Main_w_side/>
 <Our_team/>

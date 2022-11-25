@@ -50,3 +50,14 @@ Route::get('/selezionatratta', [RidesharingController::class, 'showSelect'])->na
 Route::get('/elbalavoro', [JobsController::class, 'show'])->name('ElbaLavoro');
 
 Route::get('/notizie', [ArticleController::class, 'show'])->name('notizie');
+
+Route::get('/login', function(){
+    return Inertia::render('Auth/Login');
+})->name('login');
+
+Route::get('/register', function(){
+    return Inertia::render('Auth/Register');
+})->name('register');
+
+
+

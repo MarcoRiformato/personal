@@ -37,8 +37,8 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+        return Inertia::render('Welcome');
+    })->name('Welcome');
 });
 
 Route::get('/trovacoinquilino', [HousingController::class, 'show'])->name('HousingIndex');

@@ -40,10 +40,10 @@ class HousingController extends Controller
     public function store(HousingStoreRequest $request)
     {
         $request->validate([
-            'nome' => 'required|string|max:20',
+            'nome' => 'required|string|max:30',
             'descrizione' => 'string|max:255',
-            'costo' => 'string|max:15',
-            'city' => 'string|max:20',
+            'costo' => 'string|max:50',
+            'city' => 'string|max:30',
             'numero_telefono' => 'string|nullable|max:30',
         ]);
 

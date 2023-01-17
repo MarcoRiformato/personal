@@ -16,7 +16,7 @@ defineProps({
 </script>
 
 <template>
-<Head title="Forum Giovanile v0.1"/>
+<Head title="Prova v0.1"/>
 <Navabar class="bg-white shadow dark:bg-gray-800" />
 
 <Portfolio/>

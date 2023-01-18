@@ -4,7 +4,7 @@
     <div class="container px-6 py-10 mx-auto">
         <h1 class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">Seleziona la tua partenza</h1>
         <Dropdowntratte class="py-5"/>
-        <SingleCardtratta/>
+        <SingleCardtratta/><!-- None of these are dynamic -->
         <SingleCardtratta/>
         <SingleCardtratta/>
     </div>

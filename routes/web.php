@@ -40,17 +40,6 @@ Route::middleware([
         return Inertia::render('Welcome');
     })->name('Welcome');
 });
-
-Route::get('/trovacoinquilino', [HousingController::class, 'show'])->name('HousingIndex');
-Route::get('/nuovoanncasa', [HousingController::class, 'create'])->name('newHousing');
-Route::post('/housingadeded', [HousingController::class, 'store'])->name('housingadded');
-
-Route::get('/selezionatratta', [RidesharingController::class, 'showSelect'])->name('SelezionaTratta');
-
-Route::get('/elbalavoro', [JobsController::class, 'show'])->name('ElbaLavoro');
-
-Route::get('/notizie', [ArticleController::class, 'show'])->name('notizie');
-
 Route::get('/login', function(){
     return Inertia::render('Auth/Login');
 })->name('login');
@@ -58,6 +47,17 @@ Route::get('/login', function(){
 Route::get('/register', function(){
     return Inertia::render('Auth/Register');
 })->name('register');
+
+Route::controller(HousingController::class)->group(function(){
+    Route::get('/trovacoinquilino','show')->name('HousingIndex');
+    Route::get('/nuovoanncasa','create')->name('newHousing');
+    Route::get('/housingadeded','store')->name('HousingIndex');
+});
+
+Route::resource('/selezionatratta', RidesharingController::class);
+
+
+
 
 
 

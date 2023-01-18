@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ridesharing;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -15,7 +14,7 @@ class RidesharingController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('SelezionaTratta');
     }
 
     /**
@@ -42,21 +41,21 @@ class RidesharingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Ridesharing  $ridesharing
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function showSelect(Ridesharing $ridesharing)
+    public function show($id)
     {
-        return Inertia::render('SelezionaTratta');
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Ridesharing  $ridesharing
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ridesharing $ridesharing)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +64,10 @@ class RidesharingController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Ridesharing  $ridesharing
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ridesharing $ridesharing)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +75,10 @@ class RidesharingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Ridesharing  $ridesharing
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ridesharing $ridesharing)
+    public function destroy($id)
     {
         //
     }

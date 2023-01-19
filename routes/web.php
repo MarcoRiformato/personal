@@ -37,9 +37,10 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return Inertia::render('Welcome');
-    })->name('Welcome');
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
 });
+
 Route::get('/login', function(){
     return Inertia::render('Auth/Login');
 })->name('login');

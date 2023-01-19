@@ -13,7 +13,7 @@
                 <div>
                     <a class="text-2xl font-bold text-gray-800 transition-colors duration-300 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" href="/">Sito di prova</a>
                 </div>
-                <p>Logged in</p>
+                <p class="pl-12">Logged in</p>
 
                 <!-- Mobile menu button -->
                 <div class="flex lg:hidden" @click="navbarClicked = !navbarClicked">

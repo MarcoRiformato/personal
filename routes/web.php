@@ -6,6 +6,7 @@ use App\Http\Controllers\JobsController;
 use App\Http\Controllers\RidesharingController;
 use App\Models\Ridesharing;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Jetstream\Rules\Role;
@@ -37,7 +38,9 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
+        return Inertia::render('Dashboard', [
+            'user' => Auth::user()
+        ]);
     })->name('dashboard');
 });
 

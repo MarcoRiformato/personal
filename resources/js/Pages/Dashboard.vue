@@ -5,20 +5,24 @@ import Navabar from '../Components/Custom/Navabar.vue';
 import Our_team from '../Components/Custom/OurTeam.vue';
 import Portfolio from '../Components/Custom/Portfoglio.vue';
 import CustomFooter from '../Components/Custom/CustomFooter.vue';
-import Show from './Profile/Show.vue';
+
 
 defineProps({
     canLogin: Boolean,
     canRegister: Boolean,
     laravelVersion: String,
     phpVersion: String,
+    user: String
 });
+
+
 </script>
 
-<template>
-<Head title="Prova v0.1"/>
-<Navabar class="bg-white shadow dark:bg-gray-800" />
 
+
+<template>
+<Head title="Dashboard v0.1"/>
+<Navabar :User="user" class="bg-white shadow dark:bg-gray-800" />
 <Portfolio/>
 <Main_w_side/>
 <Our_team/>

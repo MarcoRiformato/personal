@@ -23,7 +23,7 @@ defineProps({
 <template>
 <Head title="Dashboard v0.1"/>
 <Navabar :User="user" class="bg-white shadow dark:bg-gray-800" />
-<Portfolio/>
+<Portfolio :User="user"/>
 <Main_w_side/>
 <Our_team/>
 <CustomFooter/>

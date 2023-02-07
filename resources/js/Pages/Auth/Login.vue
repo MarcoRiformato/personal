@@ -7,7 +7,7 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
-import Navabar from '../../Components/Custom/Navabar.vue';
+
 import CustomFooter from '../../Components/Custom/CustomFooter.vue';
 
 defineProps({
@@ -32,7 +32,7 @@ const submit = () => {
 </script>
 
 <template>
-    <Navabar/>
+    
     <Head title="Log in" />
 
     <AuthenticationCard>

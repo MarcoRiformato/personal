@@ -1,30 +1,16 @@
 <script setup>
-import { Head, Link } from '@inertiajs/inertia-vue3';
-import Main_w_side from '../Components/Custom/main_w_side.vue';
-import Navabar from '../Components/Custom/Navabar.vue';
-import Our_team from '../Components/Custom/OurTeam.vue';
-import Portfolio from '../Components/Custom/Portfoglio.vue';
-import CustomFooter from '../Components/Custom/CustomFooter.vue';
-
-
-defineProps({
-    canLogin: Boolean,
-    canRegister: Boolean,
-    laravelVersion: String,
-    phpVersion: String,
-    user: String
-});
-
-
+import AppLayout from '@/Layouts/AppLayout.vue';
+import AuthMainPage from '@/Components/AuthMainPage.vue';
 </script>
 
-
-
 <template>
-<Head title="Dashboard v0.1"/>
-<Navabar :User="user" class="bg-white shadow dark:bg-gray-800" />
-<Portfolio :User="user"/>
-<Main_w_side/>
-<Our_team/>
-<CustomFooter/>
+    <AppLayout title="Dashboard">
+        <div class="py-3">
+            <div class=" mx-auto sm:px-6 lg:px-8">
+                <div class="overflow-hidden shadow-xl sm:rounded-lg">
+                    <AuthMainPage />
+                </div>
+            </div>
+        </div>
+    </AppLayout>
 </template>

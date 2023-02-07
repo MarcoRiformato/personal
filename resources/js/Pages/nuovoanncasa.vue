@@ -54,6 +54,7 @@ import { usePage, computed } from '@inertiajs/inertia-vue3';
 import AppLayout from '../Layouts/AppLayout.vue';
 
 
+
 const form = useForm({
     nome: '',
     descrizione: '',

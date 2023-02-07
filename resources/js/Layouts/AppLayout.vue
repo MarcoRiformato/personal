@@ -30,7 +30,7 @@ Inertia.post(route('logout'));
 
 <template>
 <div>
-<Head :title="title" />
+<Head title="Test 0.2" />
 
 <Banner />
 
@@ -134,7 +134,7 @@ Inertia.post(route('logout'));
                 </button>
 
                 <span v-else class="inline-flex rounded-md">
-                    <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                    <button v-if="$page.props.user" type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
                         {{ $page.props.user.name }}
 
                         <svg
@@ -221,10 +221,10 @@ Inertia.post(route('logout'));
     </div>
 
     <div>
-        <div class="font-medium text-base text-gray-800">
+        <div v-if=" $page.props.user" class="font-medium text-base text-gray-800">
             {{ $page.props.user.name }}
         </div>
-        <div class="font-medium text-sm text-gray-500">
+        <div v-if=" $page.props.user" class="font-medium text-sm text-gray-500">
             {{ $page.props.user.email }}
         </div>
     </div>

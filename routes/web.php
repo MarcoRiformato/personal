@@ -55,7 +55,7 @@ Route::get('/register', function(){
 Route::controller(HousingController::class)->group(function(){
     Route::get('/trovacoinquilino','show')->name('HousingIndex');
     Route::get('/nuovoanncasa','create')->name('newHousing');
-    Route::get('/housingadeded','store')->name('HousingIndex');
+    Route::post('/housingadeded','store')->name('housingadded');
 });
 
 Route::resource('/selezionatratta', RidesharingController::class);

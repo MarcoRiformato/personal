@@ -18,7 +18,7 @@
 
     
     <div>
-        <label class="text-gray-700 dark:text-gray-200" for="costo">Costo</label>
+        <label class="text-gray-700 dark:text-gray-200" for="costo">Costo totale al mese</label>
         <input v-model="form.costo" id="costo" type="text"  class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
         <div v-if="form.errors.costo" class="text-red-600 text-sm">{{ form.errors.costo }}</div>
     </div>
@@ -34,6 +34,15 @@
         <label class="text-gray-700 dark:text-gray-200" for="descrizione">Descrizione</label>
         <textarea v-model="form.descrizione" rows="6" cols="30" id="descrizione" type="textarea" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"></textarea>
         <div v-if="form.errors.descrizione" class="text-red-600 text-sm">{{ form.errors.descrizione }}</div>
+    </div>
+
+    <div>
+        
+
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="multiple_files">Upload multiple files</label>
+        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="multiple_files" type="file" multiple>
+        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG o JPG (MAX. 800x400px).</p>
+
     </div>
 
 </div>

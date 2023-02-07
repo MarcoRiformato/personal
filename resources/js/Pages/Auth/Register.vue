@@ -7,7 +7,6 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
-import Navabar from '../../Components/Custom/Navabar.vue';
 import CustomFooter from '../../Components/Custom/CustomFooter.vue';
 
 const form = useForm({
@@ -27,7 +26,6 @@ const submit = () => {
 
 <template>
     <Head title="Register" />
-    <Navabar/>
     <AuthenticationCard>
         <template #logo>
             <AuthenticationCardLogo />

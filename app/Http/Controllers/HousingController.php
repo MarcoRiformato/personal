@@ -45,15 +45,24 @@ class HousingController extends Controller
             'costo' => 'string|max:50',
             'city' => 'string|max:30',
             'numero_telefono' => 'string|nullable|max:30',
+            'foto' => 'file|mimes:jpeg,png,pdf'
         ]);
 
-        Housing::create([
+        $housing = Housing::create([
             'nome' => $request->nome,
             'descrizione' => $request->descrizione,
             'costo' => $request->costo,
             'city' => $request->city,
             'numero_telefono' => $request->numero_telefono,
         ]);
+
+        if($request->hasFile('foto')){
+            $file = $request->file('foto');
+            $filename = time().$file->getClientOriginalName();
+            $file->storeAs('public/images', $filename);
+            $housing->foto = $filename;
+            $housing->save();
+        }
 
         return redirect()->route('HousingIndex')->with('message', 'Annuncio inserito');
     }

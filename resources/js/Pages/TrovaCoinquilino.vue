@@ -1,6 +1,6 @@
 <template>
 <AppLayout>
-    <Head title="Trova Coinquilino"/>
+    <Head title="Trova Coinquilino v0.2"/>
 
     <section class="bg-white dark:bg-gray-900">
     <div class="container px-6 py-10 mx-auto">
@@ -12,7 +12,7 @@
         </Link>
         <Link v-else as="button" href="/login" class="px-6 py-2 font-medium tracking-wide text-white transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
             Aggiungi il tuo annuncio
-            </Link>
+        </Link>
     </div>
     
     <hr class="my-8 border-gray-200 dark:border-gray-700">

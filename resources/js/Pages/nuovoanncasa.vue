@@ -1,6 +1,6 @@
 <template>
-<NavabarVue/>
-<section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+<AppLayout>
+<section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-500">
 <h2  class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Nuovo annuncio</h2>
 <form @submit.prevent="submit">
 <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
@@ -43,18 +43,16 @@
 </div>
 </form>
 </section>
+</AppLayout>
 <FooterVue/>
 </template>
 <script setup>
-import NavabarVue from '../Components/Custom/Navabar.vue';
 import FooterVue from '../Components/Custom/CustomFooter.vue';
 import { useForm } from '@inertiajs/inertia-vue3';
 import { Inertia } from '@inertiajs/inertia';
 import { usePage, computed } from '@inertiajs/inertia-vue3';
+import AppLayout from '../Layouts/AppLayout.vue';
 
-const loggedIn = computed(() => {
-   return !!usePage().props.auth.user
-})
 
 const form = useForm({
     nome: '',

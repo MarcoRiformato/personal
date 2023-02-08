@@ -43,7 +43,8 @@ defineProps({
     'descrizione',
     'costo',
     'city',
-    'numero_telefono'
+    'numero_telefono',
+    'image'
     ]
 });
 

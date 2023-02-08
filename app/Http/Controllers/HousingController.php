@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\HousingStoreRequest;
 use App\Models\Housing;
 
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
@@ -37,35 +37,34 @@ class HousingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(HousingStoreRequest $request)
+    public function store(Request $request)
     {
         $request->validate([
-            'nome' => 'required|string|max:30',
-            'descrizione' => 'string|max:255',
-            'costo' => 'string|max:50',
+            'nome' => 'string|max:30',
+            'descrizione' => 'nullable|string|max:255',
+            'costo' => 'nullable|string|max:50',
             'city' => 'string|max:30',
             'numero_telefono' => 'string|nullable|max:30',
-            'foto' => 'file|mimes:jpeg,png,pdf'
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,pdf,svg'
         ]);
-
+        
+        $image_path = '';
+        if ($request->hasFile('image')) {
+            $image_path = $request->file('image')->store('image', 'public');
+        }
+        // save the file $image_path to your database
         $housing = Housing::create([
             'nome' => $request->nome,
             'descrizione' => $request->descrizione,
             'costo' => $request->costo,
             'city' => $request->city,
             'numero_telefono' => $request->numero_telefono,
+            'image' => $image_path
         ]);
-
-        if($request->hasFile('foto')){
-            $file = $request->file('foto');
-            $filename = time().$file->getClientOriginalName();
-            $file->storeAs('public/images', $filename);
-            $housing->foto = $filename;
-            $housing->save();
-        }
-
+    
         return redirect()->route('HousingIndex')->with('message', 'Annuncio inserito');
     }
+    
 
     /**
      * Display the specified resource.

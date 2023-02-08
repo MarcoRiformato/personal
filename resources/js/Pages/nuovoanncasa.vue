@@ -39,8 +39,8 @@
     <div>
         
 
-        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="multiple_files">Upload multiple files</label>
-        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="multiple_files" type="file" multiple>
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="photos">Upload multiple files</label>
+        <input name="image_name" @input="form.image = $event.target.files[0]" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" type="file" multiple>
         <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG o JPG (MAX. 800x400px).</p>
 
     </div>
@@ -48,7 +48,7 @@
 </div>
 
 <div class="flex justify-end mt-6">
-    <button type="submit" class=":disabled=form.processing px-8 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
+    <button type="submit" :disabled="form.processing" :class="{ 'opacity-25':form.processing }" class="px-8 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Salva</button>
 </div>
 </form>
 </section>
@@ -69,7 +69,8 @@ const form = useForm({
     descrizione: '',
     costo: '',
     city: '',
-    numero_telefono: ''
+    numero_telefono: '',
+    image: null
 })
 
 const submit = () =>{

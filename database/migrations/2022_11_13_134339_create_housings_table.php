@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('housings', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
+            $table->string('nome')->nullable();
             $table->string('stato_annuncio')->nullable();
-            $table->text('descrizione');
+            $table->text('descrizione')->nullable();
             $table->string('costo')->nullable();
-            $table->string('city');
+            $table->string('city')->nullable();
             $table->bigInteger('numero_telefono')->nullable();
-            $table->string('file_name')->nullable();
-            $table->string('file_path')->nullable();
+            $table->string('image')->nullable();
+            //$table->string('image_path')->nullable();
             $table->timestamps();
         });
     }

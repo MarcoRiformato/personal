@@ -46,7 +46,7 @@
     </div>
 
 </div>
-
+<p>{{ $page.props.user }}</p>
 <div class="flex justify-end mt-6">
     <button type="submit" :disabled="form.processing" :class="{ 'opacity-25':form.processing }" class="px-8 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Salva</button>
 </div>

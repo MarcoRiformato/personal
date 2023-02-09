@@ -12,4 +12,9 @@ class Housing extends Model
     protected $table = 'housings';
     protected $guarded = [];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

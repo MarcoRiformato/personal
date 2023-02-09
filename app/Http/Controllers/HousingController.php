@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\HousingStoreRequest;
 use App\Models\Housing;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
@@ -18,7 +18,9 @@ class HousingController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('TrovaCoinquilino', [
+            'housings' => Housing::get()
+        ]);
     }
 
     /**
@@ -48,18 +50,21 @@ class HousingController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,pdf,svg'
         ]);
         
+        $user_id = Auth::id();
+
         $image_path = '';
         if ($request->hasFile('image')) {
             $image_path = $request->file('image')->store('image', 'public');
         }
         // save the file $image_path to your database
-        $housing = Housing::create([
+        Housing::create([
             'nome' => $request->nome,
             'descrizione' => $request->descrizione,
             'costo' => $request->costo,
             'city' => $request->city,
             'numero_telefono' => $request->numero_telefono,
-            'image' => $image_path
+            'image' => $image_path,
+            'user_id' => $user_id
         ]);
     
         return redirect()->route('HousingIndex')->with('message', 'Annuncio inserito');
@@ -74,9 +79,7 @@ class HousingController extends Controller
      */
     public function show(Housing $housing)
     {
-        return Inertia::render('TrovaCoinquilino', [
-            'housings' => Housing::get()
-        ]);
+        //
     }
 
     /**
@@ -85,9 +88,12 @@ class HousingController extends Controller
      * @param  \App\Models\Housing  $housing
      * @return \Illuminate\Http\Response
      */
-    public function edit(Housing $housing)
+    public function edit($housing_id)
     {
-        //
+        $housing = Housing::find($housing_id);
+        return Inertia::render('EditHousing', [
+            'housing' => $housing
+        ]);
     }
 
     /**

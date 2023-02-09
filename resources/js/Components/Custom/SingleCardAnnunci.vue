@@ -38,13 +38,20 @@
 
             <h1 class="px-2 text-sm">{{ Housing.numero_telefono }}</h1>
         </div>
-        <button class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-        Scopri
-        </button>
+        <div class="text-right mx-5">
+            <Link as="button" :href="`/edithousing/${Housing.id}`" class="px-6 py-2 mr-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-yellow-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+            Modifica
+            </Link>
+            <button class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+            Scopri
+            </button>
+        </div>
     </div>
 </div>
 </template>
 <script setup>
+import { Link } from '@inertiajs/inertia-vue3';
+
 defineProps({
     Housing: Object
 })

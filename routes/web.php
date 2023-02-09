@@ -53,17 +53,13 @@ Route::get('/register', function(){
 })->name('register');
 
 Route::controller(HousingController::class)->group(function(){
-    Route::get('/trovacoinquilino','show')->name('HousingIndex');
+    
+    Route::get('/trovacoinquilino','index')->name('HousingIndex');
     Route::get('/nuovoanncasa','create')->name('newHousing');
     Route::post('/housingadeded','store')->name('housingadded');
+    Route::get('/edithousing/{id}','edit')->name('EditHousing');
 });
 
 Route::resource('/selezionatratta', RidesharingController::class);
 
 Route::resource('/elbalavoro', JobsController::class);
-
-
-
-
-
-

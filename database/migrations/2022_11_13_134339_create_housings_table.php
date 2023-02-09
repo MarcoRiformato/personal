@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->bigInteger('numero_telefono')->nullable();
             $table->string('image')->nullable();
+            $table->foreignId('user_id')->constrained()->nullable();
             //$table->string('image_path')->nullable();
             $table->timestamps();
         });

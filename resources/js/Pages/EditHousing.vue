@@ -29,6 +29,8 @@
             <input v-model="form.numero_telefono" id="numero_telefono" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
             <div v-if="form.errors.numero_telefono" class="text-red-600 text-sm">{{ form.errors.numero_telefono }}</div>
         </div>
+
+        <div v-if="form.errors" class="text-red-600">Ho degli errori {{ form.errors }}</div>
         
         <div col-2>
             <label class="text-gray-700 dark:text-gray-200" for="descrizione">Descrizione</label>
@@ -42,13 +44,13 @@
             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="photos">Upload multiple files</label>
             <input name="image_name" @input="form.image = $event.target.files[0]" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" type="file" multiple>
             <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG o JPG (MAX. 800x400px).</p>
-    
+            <div v-if="form.errors.image" class="text-red-600 text-sm">{{ form.errors.image }}</div>
         </div>
     
     </div>
     <p>{{ $page.props.housing }}</p>
     <div class="flex justify-end mt-6">
-        <button type="submit" :disabled="form.processing" :class="{ 'opacity-25':form.processing }" class="px-8 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Salva</button>
+        <button type="submit" :disabled="form.processing" :class="{ 'opacity-25':form.processing }" class="px-8 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Salva modifiche</button>
     </div>
     </form>
     </section>
@@ -57,7 +59,7 @@
     </template>
     <script setup>
     import FooterVue from '../Components/Custom/CustomFooter.vue';
-    import { useForm } from '@inertiajs/inertia-vue3';
+    import { Link, useForm } from '@inertiajs/inertia-vue3';
     import { Inertia } from '@inertiajs/inertia';
     import { usePage, computed } from '@inertiajs/inertia-vue3';
     import AppLayout from '../Layouts/AppLayout.vue';
@@ -74,12 +76,12 @@
         descrizione: props.housing.descrizione,
         costo: props.housing.costo,
         city: props.housing.city,
-        numero_telefono: props.housing.numero_telefono,
+        numero_telefono: '',
         image: props.housing.image
     })
     
     const submit = () =>{
-        form.post(route('housingadded'));
+        form.put(route('HousingUpdated', {id: props.housing.id}));
     }
     
     </script>

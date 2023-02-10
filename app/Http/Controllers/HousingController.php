@@ -103,9 +103,34 @@ class HousingController extends Controller
      * @param  \App\Models\Housing  $housing
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Housing $housing)
+    public function update(Request $request, Housing $housing, $id)
     {
-        //
+        
+        $housing = Housing::find($id);
+        //dd("CI ARRIVO", $request);
+
+        $image_path = '';
+        if ($request->hasFile('image')) {
+            $image_path = $request->file('image')->store('image', 'public');
+        }
+        $request->validate([
+            'nome' => 'string|max:30',
+            'descrizione' => 'nullable|string|max:255',
+            'costo' => 'nullable|string|max:50',
+            'city' => 'string|max:30',
+            'numero_telefono' => 'string|nullable|max:30',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,pdf,svg'
+        ]);
+        
+        $housing->nome = $request->nome;
+        $housing->descrizione = $request->descrizione;
+        $housing->costo = $request->costo;
+        $housing->city = $request->city;
+        $housing->numero_telefono = $request->numero_telefono;
+        $housing->image = $request->image;
+        $housing->save();
+        
+        return redirect()->route('HousingIndex')->with('message', 'Annuncio modificato');
     }
 
     /**

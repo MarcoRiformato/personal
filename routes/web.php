@@ -58,7 +58,10 @@ Route::controller(HousingController::class)->group(function(){
     Route::get('/nuovoanncasa','create')->name('newHousing');
     Route::post('/housingadeded','store')->name('housingadded');
     Route::get('/edithousing/{id}','edit')->name('EditHousing');
+    Route::put('/housingupdated/{id}', 'update')->name('HousingUpdated');
 });
+
+
 
 Route::resource('/selezionatratta', RidesharingController::class);
 

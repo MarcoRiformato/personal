@@ -45,6 +45,9 @@
             <button class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
             Scopri
             </button>
+            <Link as="button" :href="`/deletehousing/${Housing.id}`" class="px-6 py-2 mr-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-red-600 rounded-md hover:bg-red-400 hover:text-black">
+                Cancella
+                </Link>
         </div>
     </div>
 </div>

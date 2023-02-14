@@ -105,11 +105,8 @@ class HousingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Housing $housing, $id)
-    {
-        
+    {   
         $housing = Housing::find($id);
-        
-        //dd($request->all());
 
         $request->validate([
             'nome' => 'string|max:30',

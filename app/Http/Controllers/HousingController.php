@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Storage;
 
 class HousingController extends Controller
 {
@@ -107,28 +108,29 @@ class HousingController extends Controller
     {
         
         $housing = Housing::find($id);
-        //dd("CI ARRIVO", $request);
+        
+        //dd($request->all());
 
-        $image_path = '';
-        if ($request->hasFile('image')) {
-            $image_path = $request->file('image')->store('image', 'public');
-        }
         $request->validate([
             'nome' => 'string|max:30',
             'descrizione' => 'nullable|string|max:255',
             'costo' => 'nullable|string|max:50',
             'city' => 'string|max:30',
-            'numero_telefono' => 'string|nullable|max:30',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,pdf,svg'
+            'numero_telefono' => 'string|nullable|max:30'
         ]);
         
+        if ($request->hasFile('image')) {
+            $image_path = $request->file('image')->store('image', 'public');
+            $housing->image = $image_path;
+        }
+    
         $housing->nome = $request->nome;
         $housing->descrizione = $request->descrizione;
         $housing->costo = $request->costo;
         $housing->city = $request->city;
         $housing->numero_telefono = $request->numero_telefono;
-        $housing->image = $request->image;
         $housing->save();
+    
         
         return redirect()->route('HousingIndex')->with('message', 'Annuncio modificato');
     }

@@ -30,7 +30,7 @@ Inertia.post(route('logout'));
 
 <template>
 <div>
-<Head title="Test 0.2" />
+<Head title="Test 0.3" />
 
 <Banner />
 

@@ -138,10 +138,10 @@ class HousingController extends Controller
      * @param  \App\Models\Housing  $housing
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Housing $housing, $id)
+    public function destroy($housing_id)
     {
-        dd("works");
-        $housing = Housing::find($id);
+        
+        $housing = Housing::find($housing_id);
         $housing->delete();
 
         return redirect()->route('HousingIndex');

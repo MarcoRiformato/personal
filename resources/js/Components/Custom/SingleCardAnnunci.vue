@@ -47,7 +47,7 @@
             </button>
             <Link as="button" :href="`/deletehousing/${Housing.id}`" class="px-6 py-2 mr-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-red-600 rounded-md hover:bg-red-400 hover:text-black">
                 Cancella
-                </Link>
+            </Link>
         </div>
     </div>
 </div>

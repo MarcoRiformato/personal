@@ -59,7 +59,7 @@ Route::controller(HousingController::class)->group(function(){
     Route::post('/housingadeded','store')->name('housingadded');
     Route::get('/edithousing/{id}','edit')->name('EditHousing')->middleware('check.housing.author');
     Route::put('/housingupdated/{id}', 'update')->name('HousingUpdated')->middleware('check.housing.author');
-    Route::delete('/deletehousing/{id}', 'destroy')->name('HousingDeleted')->middleware('check.housing.author');
+    Route::get('/deletehousing/{id}', 'destroy')->name('HousingDeleted')->middleware('check.housing.author');
 });
 
 

@@ -44,7 +44,7 @@ class HousingController extends Controller
     {
         $request->validate([
             'nome' => 'string|max:30',
-            'descrizione' => 'nullable|string|max:255',
+            'descrizione' => 'nullable|string|max:500',
             'costo' => 'nullable|string|max:50',
             'city' => 'string|max:30',
             'numero_telefono' => 'string|nullable|max:30',
@@ -110,7 +110,7 @@ class HousingController extends Controller
 
         $request->validate([
             'nome' => 'string|max:30',
-            'descrizione' => 'nullable|string|max:255',
+            'descrizione' => 'nullable|string|max:500',
             'costo' => 'nullable|string|max:50',
             'city' => 'string|max:30',
             'numero_telefono' => 'string|nullable|max:30'

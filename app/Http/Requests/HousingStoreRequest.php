@@ -25,7 +25,7 @@ class HousingStoreRequest extends FormRequest
     {
         return [
             'nome' => 'string|max:50',
-            'descrizione' => 'string|max:250',
+            'descrizione' => 'string|max:500',
             'costo' => 'string|max:50',
             'city' => 'string|max:100',
             'numero_telefono' => 'string|max:30'

@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use App\Models\Housing;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Stmt\ElseIf_;
 
 class CheckHousingAuthor
 {
@@ -20,10 +22,12 @@ class CheckHousingAuthor
         
         $housing = Housing::findOrFail($request->route('id'));
         
-        if ($housing->user_id !== auth()->id()) {
+        if (Auth::user() && Auth::user()->is_admin){
+            return $next($request);
+        }
+        elseif ($housing->user_id !== auth()->id()) {
             return redirect()->route('HousingIndex')->with('message', 'Non hai il permesso');
         }
-        
-        return $next($request);
+    
     }
 }

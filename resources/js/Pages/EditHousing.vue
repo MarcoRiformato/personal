@@ -30,7 +30,7 @@
             <div v-if="form.errors.numero_telefono" class="text-red-600 text-sm">{{ form.errors.numero_telefono }}</div>
         </div>
 
-        <div v-if="form.errors" class="text-red-600">Ho degli errori {{ form.errors }}</div>
+        <!--<div v-if="form.errors" class="text-red-600">Ho degli errori {{ form.errors }}</div>-->
         
         <div col-2>
             <label class="text-gray-700 dark:text-gray-200" for="descrizione">Descrizione</label>

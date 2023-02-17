@@ -57,7 +57,7 @@ Route::controller(HousingController::class)->group(function(){
     Route::get('/trovacoinquilino','index')->name('HousingIndex');
     Route::get('/nuovoanncasa','create')->name('newHousing');
     Route::post('/housingadeded','store')->name('housingadded');
-    Route::get('/edithousing/{id}','edit')->name('EditHousing')->middleware('AdminCheck');
+    Route::get('/edithousing/{id}','edit')->name('EditHousing')->middleware('check.housing.author');
     Route::put('/housingupdated/{id}', 'update')->name('HousingUpdated')->middleware('check.housing.author');
     Route::get('/deletehousing/{id}', 'destroy')->name('HousingDeleted')->middleware('check.housing.author');
 });

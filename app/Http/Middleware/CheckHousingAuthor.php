@@ -25,8 +25,11 @@ class CheckHousingAuthor
         if (Auth::user() && Auth::user()->is_admin){
             return $next($request);
         }
-        elseif ($housing->user_id !== auth()->id()) {
-            return redirect()->route('HousingIndex')->with('message', 'Non hai il permesso');
+        elseif ($housing->user_id == auth()->id()) {
+            return $next($request);
+        }
+        else{
+            return redirect()->route('HousingIndex');
         }
     
     }

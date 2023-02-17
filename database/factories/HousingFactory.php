@@ -17,12 +17,13 @@ class HousingFactory extends Factory
     public function definition()
     {
         return [
-            'nome' => fake()->name(),
-            'descrizione' => fake()->realTextBetween(5,20),
-            'costo' => fake()->randomDigit(),
-            'city' => fake()->city(),
-            'numero_telefono' => fake()->randomNumber(),
-            'stato_annuncio' => 'disponibile'
+            'nome' => 'Zulia',
+            'descrizione' => 'Affitto stanza per studenti: Ampia camera arredata con letto singolo, scrivania, sedia e armadio. Bagno in comune con un altra persona. Cucina condivisa completamente attrezzata e zona soggiorno con TV. Connessione internet veloce e inclusa nel prezzo. A pochi passi dalla fermata del bus e da negozi di alimentari',
+            'costo' => '300',
+            'city' => 'Grosseto',
+            'numero_telefono' => '3885686658',
+            'stato_annuncio' => 'disponibile',
+            'user_id' => '1'
         ];
     }
 }

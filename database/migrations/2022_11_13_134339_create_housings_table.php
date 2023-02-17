@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->bigInteger('numero_telefono')->nullable();
             $table->string('image')->nullable();
             $table->foreignId('user_id')->constrained()->nullable();
-            //$table->string('image_path')->nullable();
+            $table->softDeletes();
             $table->timestamps();
             
         });

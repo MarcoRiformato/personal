@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,7 +24,7 @@ class HousingFactory extends Factory
             'city' => 'Grosseto',
             'numero_telefono' => '3885686658',
             'stato_annuncio' => 'disponibile',
-            'user_id' => '1'
+            'user_id' => User::pluck('id')->random(),
         ];
     }
 }

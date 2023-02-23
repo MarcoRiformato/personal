@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
+        /*
         User::factory()->create([
              'name' => 'prova',
              'email' => 'prova@gmail.com',
@@ -35,7 +36,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@admin.it',
             'password' => Hash::make('123456789')
         ]);
-
+        */
         Housing::factory()->count(4)->create();
         //Jobs::factory()->count(4)->create();
     }

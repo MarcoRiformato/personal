@@ -1,12 +1,11 @@
 <template>
 <AppLayout>
-    <Head title=""/>
-
     <section class="bg-white dark:bg-gray-900">
     <div class="container px-6 py-10 mx-auto">
     <div class="flex items-center justify-between">
     
         <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">Annunci </h1>
+        <HousingFilter :cities="$cities"/>
         <Link v-if="$page.props.user" as="button" href="/nuovoanncasa" class="px-6 py-2 font-medium tracking-wide text-white transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
         Aggiungi il tuo annuncio
         </Link>
@@ -30,6 +29,7 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import CustomFooter from '../Components/Custom/CustomFooter.vue';
+import HousingFilter from '../Components/Custom/HousingFilter.vue';
 
 import SingleCardAnnunci from '../Components/Custom/SingleCardAnnunci.vue';
 import AppLayout from '../Layouts/AppLayout.vue';
@@ -45,7 +45,9 @@ defineProps({
     'city',
     'numero_telefono',
     'image'
-    ]
+    ],
+
+    cities: Array
 });
 
 </script>

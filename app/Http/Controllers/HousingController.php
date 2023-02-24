@@ -19,8 +19,13 @@ class HousingController extends Controller
      */
     public function index()
     {
+
+        $houses = Housing::all();
+        $cities = $houses->pluck('city')->countBy()->sortByDesc('value')->keys();
+
         return Inertia::render('TrovaCoinquilino', [
-            'housings' => Housing::get()
+            'housings' => Housing::get(),
+            'cities' => $cities
         ]);
     }
 

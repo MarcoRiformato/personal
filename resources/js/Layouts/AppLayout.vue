@@ -53,6 +53,11 @@ Inertia.post(route('logout'));
             Dashboard
         </NavLink>
     </div>
+    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex pt-5">
+        <Link href="/admindashboard" class="text-white">
+            Admin
+        </Link>
+    </div>
 </div>
 
 <div class="hidden sm:flex sm:items-center sm:ml-6">

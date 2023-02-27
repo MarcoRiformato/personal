@@ -19,12 +19,12 @@ class Housing extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function getCostoAttribute($value)
+    public function getCostoAttribute($value) //Accessor
     {
         return '€ ' . $value;
     }
 
-    public function setNomeAttribute($value)
+    public function setNomeAttribute($value) // Mutator
     {
         $this->attributes['nome'] = ucfirst($value);
         Log::info("Setting name attribute: " . $value);

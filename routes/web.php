@@ -67,3 +67,8 @@ Route::controller(HousingController::class)->group(function(){
 Route::resource('/selezionatratta', RidesharingController::class);
 
 Route::resource('/elbalavoro', JobsController::class);
+
+Route::get('/admindashboard', function () {
+    return Inertia::render('AdminDashboard');
+});
+

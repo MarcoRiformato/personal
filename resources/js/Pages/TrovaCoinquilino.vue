@@ -45,9 +45,7 @@ defineProps({
     'city',
     'numero_telefono',
     'image'
-    ],
-
-    cities: Array
+    ]
 });
 
 </script>

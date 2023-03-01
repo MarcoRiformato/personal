@@ -14,27 +14,18 @@ class HousingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $houses = Housing::query();
-        
-        if ($request->has('search')) {
-            $houses->where(function($query) use ($request) {
-                $query->where('nome', 'like', '%'.$request->search.'%')
-                    ->orWhere('stato_annuncio', 'like', '%'.$request->search.'%')
-                    ->orWhere('descrizione', 'like', '%'.$request->search.'%')
-                    ->orWhere('city', 'like', '%'.$request->search.'%')
-                    ->orWhere('numero_telefono', 'like', '%'.$request->search.'%');
-            });
-        }
-        
+
+        $houses = Housing::all();
+        $cities = $houses->pluck('city')->countBy()->sortByDesc('value')->keys();
+
         return Inertia::render('TrovaCoinquilino', [
             'housings' => Housing::get(),
-            'filters' => [
-                'search' => $request->search,
-            ],
+            'cities' => $cities
         ]);
     }
+
     
 
     /**

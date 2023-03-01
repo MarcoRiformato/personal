@@ -33,6 +33,7 @@
     import HousingFilter from '../Components/Custom/HousingFilter.vue';
     import SingleCardAnnunci from '../Components/Custom/SingleCardAnnunci.vue';
     import AppLayout from '../Layouts/AppLayout.vue';
+    
     defineProps({
         housings: Array[
         'nome',

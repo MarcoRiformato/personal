@@ -5,7 +5,8 @@
     <div class="flex items-center justify-between">
     
         <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">Annunci </h1>
-        <HousingFilter :cities="$cities"/>
+        <!--<HousingFilter :cities="$cities"/>-->
+        <input v-model="search" type="text" placeholder="Search..." class="border px-2 rounded-lg" />
         <Link v-if="$page.props.user" as="button" href="/nuovoanncasa" class="px-6 py-2 font-medium tracking-wide text-white transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
         Aggiungi il tuo annuncio
         </Link>
@@ -27,25 +28,27 @@
 </AppLayout>
 </template>
 <script setup>
+import { Inertia } from '@inertiajs/inertia';
 import { Head, Link } from '@inertiajs/inertia-vue3';
+import { watch } from 'vue';
+import { ref } from 'vue';
+import debounce from "lodash/debounce";
 import CustomFooter from '../Components/Custom/CustomFooter.vue';
 import HousingFilter from '../Components/Custom/HousingFilter.vue';
 
 import SingleCardAnnunci from '../Components/Custom/SingleCardAnnunci.vue';
 import AppLayout from '../Layouts/AppLayout.vue';
 
-
-
-defineProps({
-    housings: Array[
-    'nome',
-    'stato_annuncio',
-    'descrizione',
-    'costo',
-    'city',
-    'numero_telefono',
-    'image'
-    ]
+let props = defineProps({
+   filters: Object,
+   housings: Array
 });
+
+let search = ref(props.filters.search);
+
+watch(search, debounce(function (value) {
+    Inertia.get('/trovacoinquilino', {search: value}, { preserveState: true, replace: true });
+}, 300));
+
 
 </script>

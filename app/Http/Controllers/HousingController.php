@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\HousingStoreRequest;
 use App\Models\Housing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
-use Illuminate\Support\Facades\Storage;
 
 class HousingController extends Controller
 {
@@ -17,17 +14,28 @@ class HousingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-
-        $houses = Housing::all();
-        $cities = $houses->pluck('city')->countBy()->sortByDesc('value')->keys();
-
+        $houses = Housing::query();
+        
+        if ($request->has('search')) {
+            $houses->where(function($query) use ($request) {
+                $query->where('nome', 'like', '%'.$request->search.'%')
+                    ->orWhere('stato_annuncio', 'like', '%'.$request->search.'%')
+                    ->orWhere('descrizione', 'like', '%'.$request->search.'%')
+                    ->orWhere('city', 'like', '%'.$request->search.'%')
+                    ->orWhere('numero_telefono', 'like', '%'.$request->search.'%');
+            });
+        }
+        
         return Inertia::render('TrovaCoinquilino', [
             'housings' => Housing::get(),
-            'cities' => $cities
+            'filters' => [
+                'search' => $request->search,
+            ],
         ]);
     }
+    
 
     /**
      * Show the form for creating a new resource.

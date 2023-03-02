@@ -19,7 +19,7 @@
         
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
             
-            <SingleCardAnnunci  v-for="Housing in housings" :Housing="Housing"/>
+            <SingleCardAnnunci  v-for="Housing in housings" :Housing="Housing" :user="user"/>
         </div>
         </div>
         </section>
@@ -38,7 +38,9 @@ import { Inertia } from '@inertiajs/inertia';
     
 let props = defineProps({
     housings: Object,
-    filters: Object
+    filters: Object,
+    isAuthor: Boolean,
+    user: Object
 })
 
 let search = ref(props.filters.search);

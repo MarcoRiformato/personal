@@ -20,29 +20,31 @@
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
             
             <SingleCardAnnunci  v-for="Housing in housings" :Housing="Housing"/>
-        
         </div>
         </div>
         </section>
         <CustomFooter/>
     </AppLayout>
     </template>
-    <script setup>
-    import { Head, Link } from '@inertiajs/inertia-vue3';
-    import CustomFooter from '../Components/Custom/CustomFooter.vue';
-    import HousingFilter from '../Components/Custom/HousingFilter.vue';
-    import SingleCardAnnunci from '../Components/Custom/SingleCardAnnunci.vue';
-    import AppLayout from '../Layouts/AppLayout.vue';
+<script setup>
+import { Head, Link } from '@inertiajs/inertia-vue3';
+import { ref,watch } from 'vue';
+import debounce from "lodash/debounce";
+import CustomFooter from '../Components/Custom/CustomFooter.vue';
+import HousingFilter from '../Components/Custom/HousingFilter.vue';
+import SingleCardAnnunci from '../Components/Custom/SingleCardAnnunci.vue';
+import AppLayout from '../Layouts/AppLayout.vue';
+import { Inertia } from '@inertiajs/inertia';
     
-    defineProps({
-        housings: Array[
-        'nome',
-        'stato_annuncio',
-        'descrizione',
-        'costo',
-        'city',
-        'numero_telefono',
-        'image'
-        ]
-    });
-    </script>
+let props = defineProps({
+    housings: Object,
+    filters: Object
+})
+
+let search = ref(props.filters.search);
+
+watch(search, debounce(function (value) {
+    Inertia.get('/trovacoinquilino', {search: value}, {preserveState: true, replace: true});
+}, 300));
+
+</script>

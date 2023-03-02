@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Housing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 use Inertia\Inertia;
 
 class HousingController extends Controller
@@ -16,16 +17,30 @@ class HousingController extends Controller
      */
     public function index()
     {
-
-        $houses = Housing::all();
-        $cities = $houses->pluck('city')->countBy()->sortByDesc('value')->keys();
-
-        return Inertia::render('TrovaCoinquilino', [
-            'housings' => Housing::get(),
-            'cities' => $cities
-        ]);
+        $housings = Housing::query()
+            ->when(request('search'), function ($query, $search) {
+                $query->where('nome', 'like', "%{$search}%")
+                ->orWhere('city', 'like', "%{$search}%")
+                ->orWhere('stato_annuncio', 'like', "%{$search}%")
+                ->orWhere('costo', 'like', "%{$search}%");
+            })
+            ->get()
+            ->map(function ($housing) {
+                return [
+                    'id' => $housing->id,
+                    'nome' => $housing->nome,
+                    'descrizione' => $housing->descrizione,
+                    'city' => $housing->city,
+                    'costo' => $housing->costo,
+                    'stato_annuncio' => $housing->stato_annuncio,
+                ];
+            });
+    
+        $filters = request()->only(['search']);
+    
+        return Inertia::render('TrovaCoinquilino', compact('housings', 'filters'));
     }
-
+    
     
 
     /**

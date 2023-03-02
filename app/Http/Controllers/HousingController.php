@@ -98,9 +98,12 @@ class HousingController extends Controller
      * @param  \App\Models\Housing  $housing
      * @return \Illuminate\Http\Response
      */
-    public function show(Housing $housing)
+    public function show($housing_id)
     {
-        //
+        $housing = Housing::find($housing_id);
+        return Inertia::render('ShowHousing', [
+            'housing' => $housing
+        ]);
     }
 
     /**

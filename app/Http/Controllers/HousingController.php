@@ -33,12 +33,13 @@ class HousingController extends Controller
                     'city' => $housing->city,
                     'costo' => $housing->costo,
                     'stato_annuncio' => $housing->stato_annuncio,
-                    'user_id' => $housing->user_id
+                    'user_id' => $housing->user_id,
+                    'image' => $housing->image
                 ];
             });
     
         $filters = request()->only(['search']);
-    
+        
         return Inertia::render('TrovaCoinquilino', compact('housings', 'filters'));
     }
     

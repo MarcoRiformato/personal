@@ -1,6 +1,9 @@
 <template>
 <div class="w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
-    <img class="object-cover object-center w-full h-56" :src="`/storage/${Housing.image}`" alt="immagine annuncio">
+    <img v-if="Housing.image" class="object-cover object-center w-full h-56" :src="`/storage/${Housing.image}`" alt="immagine annuncio">
+
+    <img v-else class="object-cover object-center w-full h-56" src="/storage/image/default.jpg" alt="immagine default">
+
 
     
 

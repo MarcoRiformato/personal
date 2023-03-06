@@ -58,6 +58,7 @@
         <p>{{ housing.descrizione }}</p>
     </div>
     </div>
+    <p>{{ housing }}</p>
 </div>
 </div>
 </div>

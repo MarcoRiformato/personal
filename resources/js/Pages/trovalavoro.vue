@@ -27,7 +27,6 @@
 import { Head } from '@inertiajs/inertia-vue3';
 import CustomFooter from '../Components/Custom/CustomFooter.vue';
 import Lavori from '../Components/Custom/lavori.vue';
-import Navabar from '../Components/Custom/Navabar.vue';
 
 defineProps({
     jobs:Array [

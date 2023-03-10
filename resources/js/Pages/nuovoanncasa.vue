@@ -40,7 +40,7 @@
         
 
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="photos">Upload multiple files</label>
-        <input name="image_name" @input="form.image = $event.target.files[0]" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" type="file" multiple>
+        <input name="image_name" @input="form.images = $event.target.files" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" type="file" multiple>
         <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG o JPG (MAX. 800x400px).</p>
 
     </div>
@@ -70,7 +70,7 @@ const form = useForm({
     costo: '',
     city: '',
     numero_telefono: '',
-    image: null
+    images: []
 })
 
 const submit = () =>{

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Housing;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request as FacadesRequest;
 use Inertia\Inertia;
 
@@ -17,7 +19,8 @@ class HousingController extends Controller
      */
     public function index()
     {
-        $housings = Housing::query()
+
+        $housings = Housing::with('images')
             ->when(request('search'), function ($query, $search) {
                 $query->where('nome', 'like', "%{$search}%")
                 ->orWhere('city', 'like', "%{$search}%")
@@ -26,6 +29,9 @@ class HousingController extends Controller
             })
             ->get()
             ->map(function ($housing) {
+
+                $images = $housing->images->pluck('path')->toArray();
+
                 return [
                     'id' => $housing->id,
                     'nome' => $housing->nome,
@@ -33,7 +39,8 @@ class HousingController extends Controller
                     'city' => $housing->city,
                     'costo' => $housing->costo,
                     'stato_annuncio' => $housing->stato_annuncio,
-                    'user_id' => $housing->user_id
+                    'user_id' => $housing->user_id,
+                    'image' => $images
                 ];
             });
     
@@ -43,7 +50,6 @@ class HousingController extends Controller
     }
     
     
-
     /**
      * Show the form for creating a new resource.
      *
@@ -68,28 +74,35 @@ class HousingController extends Controller
             'costo' => 'nullable|string|max:50',
             'city' => 'string|max:30',
             'numero_telefono' => 'string|nullable|max:30',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,pdf,svg'
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,pdf,svg'
         ]);
-        
+    
         $user_id = Auth::id();
-
-        $image_path = '';
-        if ($request->hasFile('image')) {
-            $image_path = $request->file('image')->store('image', 'public');
-        }
-        // save the file $image_path to your database
-        Housing::create([
+    
+        $housing = Housing::create([
             'nome' => $request->nome,
             'descrizione' => $request->descrizione,
             'costo' => $request->costo,
             'city' => $request->city,
             'numero_telefono' => $request->numero_telefono,
-            'image' => $image_path,
             'user_id' => $user_id
         ]);
-    
+
+        
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
+                $path = $file->store('image', 'public');
+                
+                $image = new Image([
+                    'path' => $path
+                ]);
+                $housing->images()->save($image);
+            }
+        }
+        
         return redirect()->route('HousingIndex')->with('message', 'Annuncio inserito');
     }
+    
     
 
     /**
@@ -100,7 +113,7 @@ class HousingController extends Controller
      */
     public function show($housing_id)
     {
-        $housing = Housing::find($housing_id);
+        $housing = Housing::with('images')->find($housing_id);
         return Inertia::render('ShowHousing', [
             'housing' => $housing
         ]);
@@ -127,7 +140,7 @@ class HousingController extends Controller
      * @param  \App\Models\Housing  $housing
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Housing $housing, $id)
+    public function update(Request $request, Housing $housing, $id) //image update not working!
     {   
         $housing = Housing::find($id);
 
@@ -139,9 +152,11 @@ class HousingController extends Controller
             'numero_telefono' => 'string|nullable|max:30'
         ]);
         
+        $image_paths = [];
         if ($request->hasFile('image')) {
-            $image_path = $request->file('image')->store('image', 'public');
-            $housing->image = $image_path;
+            foreach ($request->file('image') as $file){
+                $image_paths[] = $file->store('image', 'public');
+            }
         }
     
         $housing->nome = $request->nome;

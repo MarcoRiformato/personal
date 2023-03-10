@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('costo')->nullable();
             $table->string('city')->nullable();
             $table->bigInteger('numero_telefono')->nullable();
-            $table->string('images')->nullable();
             $table->foreignId('user_id')->constrained()->nullable();
             $table->softDeletes();
             $table->timestamps();

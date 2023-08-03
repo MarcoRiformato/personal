@@ -58,8 +58,6 @@
 <script setup>
 import FooterVue from '../Components/Custom/CustomFooter.vue';
 import { useForm } from '@inertiajs/inertia-vue3';
-import { Inertia } from '@inertiajs/inertia';
-import { usePage, computed } from '@inertiajs/inertia-vue3';
 import AppLayout from '../Layouts/AppLayout.vue';
 
 

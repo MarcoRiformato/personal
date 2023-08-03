@@ -12,7 +12,7 @@
           <div class="sticky top-0 md:pl-8">
             <strong
               class="rounded-full border border-blue-600 bg-gray-100 px-3 py-0.5 text-xs font-medium tracking-wide text-blue-600">
-              {{ housing.stato_annuncio }}prova
+              {{ housing.stato_annuncio }}
             </strong>
   
             <div class="mt-8 flex flex-col md:flex-row md:justify-between md:items-center">
